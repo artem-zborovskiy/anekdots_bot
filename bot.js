@@ -4,6 +4,11 @@ const { Keyboard } = require('puppeteer');
 const PARSER = require('./parser.js');
 const BOT = new TELEGRAM_API(TOKEN, {polling: true});
 
+const Promise = require('bluebird');
+Promise.config({
+    cancellation: true
+});
+
 const start = () => {
     BOT.setMyCommands([
         {command: '/start', description: 'start'},
