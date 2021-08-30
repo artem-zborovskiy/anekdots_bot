@@ -13,8 +13,6 @@ const start = () => {
     BOT.setMyCommands([
         {command: '/start', description: 'start'},
         {command: '/anekdot', description: 'get anekdot'},
-        {command: '/open_keyboard', description: 'open keyboard'},
-        {command: '/close_keyboard', description: 'close keyboard'},
     ]);
     
     BOT.on('message', async (message) => {
@@ -34,16 +32,6 @@ const start = () => {
                 return;
             }
     
-            if(TEXT === '/open_keyboard' || TEXT === '/open_keyboard@proANEKDOTSbot' || TEXT === 'открыть клавиатуру') {
-                openKeyboard(CHAT_ID);
-                return;
-            }
-    
-            if(TEXT === '/close_keyboard' || TEXT === '/close_keyboard@proANEKDOTSbot' || TEXT === 'закрыть клавиатуру') {
-                remove_keyboard(CHAT_ID);
-                return;
-            }
-    
             if(TEXT === '/anekdot' || TEXT === '/anekdot@proANEKDOTSbot' || TEXT === 'анекдот') {
                 return BOT.sendMessage(CHAT_ID, await PARSER());
             }
@@ -51,23 +39,6 @@ const start = () => {
             return BOT.sendMessage(CHAT_ID, 'я тебя не понял');
         }
     });
-}
-
-function openKeyboard(chatID) {
-    BOT.sendMessage(chatID, 'что мне сделать?', {reply_markup: {
-            keyboard: [
-                ['анекдот'],
-                ['закрыть клавиатуру']
-            ]
-        }
-    })
-}
-
-function remove_keyboard(chatID) {
-    BOT.sendMessage(chatID, 'клавиатура закрыта', {reply_markup: {
-            remove_keyboard: true
-        }
-    })
 }
 
 start();
