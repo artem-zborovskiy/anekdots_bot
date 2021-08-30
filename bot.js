@@ -27,23 +27,23 @@ const start = () => {
             console.log(`NAME: ${message.from.first_name}; CHAT_ID: ${CHAT_ID}; MESSAGE: ${TEXT}`);
         }
 
-        if(TEXT === '/start' || TEXT === '/start@proREDDITbot') {
+        if(TEXT === '/start' || TEXT === '/start@proANEKDOTSbot') {
             BOT.sendMessage(CHAT_ID, 'привет');
             openKeyboard(CHAT_ID);
             return;
         }
 
-        if(TEXT === '/open_keyboard' || TEXT === '/open_keyboard@proREDDITbot' || TEXT === 'открыть клавиатуру') {
+        if(TEXT === '/open_keyboard' || TEXT === '/open_keyboard@proANEKDOTSbot' || TEXT === 'открыть клавиатуру') {
             openKeyboard(CHAT_ID);
             return;
         }
 
-        if(TEXT === '/close_keyboard' || TEXT === '/close_keyboard@proREDDITbot' || TEXT === 'закрыть клавиатуру') {
+        if(TEXT === '/close_keyboard' || TEXT === '/close_keyboard@proANEKDOTSbot' || TEXT === 'закрыть клавиатуру') {
             remove_keyboard(CHAT_ID);
             return;
         }
 
-        if(TEXT === '/anekdot' || TEXT === '/anekdot@proREDDITbot' || TEXT === 'анекдот') {
+        if(TEXT === '/anekdot' || TEXT === '/anekdot@proANEKDOTSbot' || TEXT === 'анекдот') {
             return BOT.sendMessage(CHAT_ID, await PARSER());
         }
 
