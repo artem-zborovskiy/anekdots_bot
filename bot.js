@@ -27,7 +27,6 @@ const start = () => {
         if(TEXT !== undefined) {
             if(TEXT === '/start' || TEXT === '/start@proANEKDOTSbot') {
                 BOT.sendMessage(CHAT_ID, 'привет');
-                openKeyboard(CHAT_ID);
                 return;
             }
     
