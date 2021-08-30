@@ -1,6 +1,5 @@
 const TOKEN = "1933153230:AAGMq4P5s1lnetft2I7yeyLcIzz7IFZHVLY";
 const TELEGRAM_API = require('node-telegram-bot-api');
-const { Keyboard } = require('puppeteer');
 const PARSER = require('./parser.js');
 const BOT = new TELEGRAM_API(TOKEN, {polling: true});
 
