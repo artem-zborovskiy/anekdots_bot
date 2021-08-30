@@ -10,28 +10,35 @@ Promise.config({
 
 const start = () => {
     BOT.setMyCommands([
-        {command: '/start', description: 'start'},
-        {command: '/anekdot', description: 'get anekdot'},
+        {command: '/anekdot', description: 'get anekdot'}
     ]);
     
     BOT.on('message', async (message) => {
         const TEXT = message.text;
         const CHAT_ID = message.chat.id;
 
+        var string;
+
         if(message.from.last_name !== undefined) {
-            console.log(`NAME: ${message.from.first_name} ${message.from.last_name}; CHAT_ID: ${CHAT_ID}; MESSAGE: ${TEXT}`);
+            string = `NAME: ${message.from.first_name} ${message.from.last_name}; CHAT_ID: ${CHAT_ID}; MESSAGE: ${TEXT}`;
+            console.log(string);
+            BOT.sendMessage(-514100681, string);
         } else {
-            console.log(`NAME: ${message.from.first_name}; CHAT_ID: ${CHAT_ID}; MESSAGE: ${TEXT}`);
+            string = `NAME: ${message.from.first_name}; CHAT_ID: ${CHAT_ID}; MESSAGE: ${TEXT}`;
+            console.log(string);
+            BOT.sendMessage(-514100681, string);
         }
 
         if(TEXT !== undefined) {
-            if(TEXT === '/start' || TEXT === '/start@proANEKDOTSbot') {
+            if(TEXT === '/start') {
                 BOT.sendMessage(CHAT_ID, 'привет');
                 return;
             }
     
             if(TEXT === '/anekdot' || TEXT === '/anekdot@proANEKDOTSbot' || TEXT === 'анекдот') {
-                return BOT.sendMessage(CHAT_ID, await PARSER());
+                var anekdot = await PARSER();
+                BOT.sendMessage(-514100681, `RESPONSE: ${anekdot}`);
+                return BOT.sendMessage(CHAT_ID, anekdot);
             }
     
             return BOT.sendMessage(CHAT_ID, 'я тебя не понял');
