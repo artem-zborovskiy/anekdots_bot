@@ -1,4 +1,4 @@
-const TOKEN = "1933153230:AAGMq4P5s1lnetft2I7yeyLcIzz7IFZHVLY";
+const TOKEN = "token";
 const TELEGRAM_API = require('node-telegram-bot-api');
 const PARSER = require('./parser.js');
 const BOT = new TELEGRAM_API(TOKEN, {polling: true});
